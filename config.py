@@ -1,12 +1,10 @@
 import os
 
-dbdir = "sqlite:///" + os.path.abspath(os.getcwd()) + "/flask.db"
-
 class Config(object):
     SECRET_KEY = 'my_secret_key'
 
 
 class DevelopmentConfig(Config):
-    DEBUG ='False'
-    SQLALCHEMY_DATABASE_URI = dbdir
+    DEBUG ='True'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:1234@localhost/flask'
     SQLALCHEMY_TRACK_MODIFICATIONS = False #se coloca en modo false ya que de lo contrario apareceria un Warning
